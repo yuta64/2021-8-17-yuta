@@ -14,4 +14,17 @@ class TodoController extends Controller
 
         return view('todo.index',['items'=>$items]);
     }
+    public function add(Request $request)
+    {
+        $item = $request->content('index');
+        return view('todo.index',
+        ['items'=>items]);
+    }
+    public function create(Request $request)
+    {
+
+        $form = $request->all();
+        Todo::create($form);
+        return redirect('/');
+    }
 }

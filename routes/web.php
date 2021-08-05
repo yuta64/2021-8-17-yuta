@@ -14,4 +14,4 @@ use App\Http\Controllers\TodoController;
 */
 
 Route::get('/',[TodoController::class,'index']);
-
+Route::post('/add',[TodoController::class,'index']);
