@@ -34,10 +34,13 @@ class TodoController extends Controller
         public function edit(Request $request)
         {
             $todo = Todo::find($request->content);
-            return view('todo.index',['form'=>$items]);
+            return view('todo.index',['form'=>$todo]);
         }
-        public function update(Request $request)
+        public function up_date(Request $request)
         {
+
+            $form = $request->all();
+
             Todo::where('content',$request->content)->update($form);
             return redirect('/');
         }

@@ -34,15 +34,20 @@
                         <td>
                             {{$item ->created_at}}
 {{-- テキストで表示 --}}
+
                             {{$item ->update_at}}</td>
 
 
-                            <td>{{$item ->content}}</td>
+                            <td>
+
+
+                                {{$item ->content}}
+                            </td>
                           <td>
 {{-- 更新 --}}
-                           @csrf
-                            <form action="/edit" method="POST">
 
+                            <form action="/edit" method="POST">
+                                 @csrf
                             <input type="submit" name="up_date" value="更新">
                             </form>
                         </td>
