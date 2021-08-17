@@ -6,18 +6,28 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="/css/reste.css">
-   <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
+
+
 <body>
     <div class="container">
         <div class="card">
             <p class="title_todo">Todo List </p>
+{{-- エラー表示 --}}
+            @if (count($errors) > 0)
+            <ul>
+                @foreach ($errors->all() as $error)
+                <li>{{$error}}</li>
+                @endforeach
+            </ul>
+            @endif
             <div class="todo">
-                {{-- 追加 --}}
-                <form action="/add" method="post">
+{{-- 追加 --}}
+                <form action="/todo/create" method="post" class="flex between mb-30">
                     @csrf
-                    <input type="text" name="content" value="">
-                    <input type="submit" value="追加">
+                    <input type="text" name="content"  class="input-add">
+                    <input type="submit" class="button-add" value="追加">
                 </form>
                 <table>
                     <tr>
@@ -26,54 +36,43 @@
                         <th>更新</th>
                         <th>削除</th>
                     </tr>
-                    {{-- 表示 --}}
                     <tr>
+                        {{-- 表示 --}}
 
                         @foreach ($items as $item)
                     <tr>
                         <td>
                             {{$item ->created_at}}
-{{-- テキストで表示 --}}
 
-                            {{$item ->update_at}}</td>
+                        </td>
 
-
+                        <form action="{{ route('todo.update', ['id' => $item->id] )}}" method="post">
+                            @csrf
                             <td>
-
-
-                                {{$item ->content}}
+                                <input type="text" class="input-update" value="{{$item->content }}" name="content">
                             </td>
-                          <td>
-{{-- 更新 --}}
+                            <td>
+                                <button class="button-update">更新 </button>
+                            </td>
+                        </form>
+                        <td>
 
-                            <form action="/edit" method="POST">
-                                 @csrf
-                            <input type="submit" name="up_date" value="更新">
+                            <form action="{{ route('todo.delete', ['id' =>$item->id]) }}" method="post">
+                                @csrf
+                                <button class="button-delete">削除 </button>
                             </form>
                         </td>
-                        {{-- 削除 --}}
-                    <td>
-
-                        <form action="/delete" method="POST">
-                            @csrf
-                            <input type="submit" name="delete" value="削除">
-                        </td>
-                    </form>
-                        @endforeach
 
                     </tr>
 
-
-
-
+                    @endforeach
 
 
                 </table>
+            </div>
         </div>
-    </div>
-
-
-
+            </div>
+        </div>
 
 </body>
 </html>

@@ -1,4 +1,124 @@
-h1
- {
-     color: aqua;
- }
+.flex {
+    display: flex;
+}
+
+.between {
+    justify-content:  space-between;
+}
+.mb-15 {
+    margin-bottom: 15px ;
+}
+
+.mb-30 {
+    margin-bottom: 30px;
+}
+
+
+
+body　{
+    line-height: 1;
+}
+.container {
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+    background-color: #2b197c;
+}
+.title_todo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.card {
+    background-color: rgb(240, 241, 241);
+    width: 50vw;
+    padding: 30px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 10px;
+    transform: translate(-50%, -50%);
+}
+
+table {
+    text-align: center;
+    width: 100%;
+}
+
+tr{
+    height: 50px;
+}
+
+.input-add {
+    width: 80%;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    outline: none;
+}
+
+.input-update {
+    width: 90%;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+.button-add {
+    text-align: left;
+    border: 2px solid #dc70fa;
+    font-size: 12px;
+    color: #dc70fa;
+    background-color: #fff;
+    font-weight: bold;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.button-add:hover {
+    background-color: #cd58ee;
+    color: #fff;
+}
+
+.button-update {
+    text-align: left;
+    border: 2px solid orange;
+    font-size: 12px;
+    color: orange;
+    background-color: #fff;
+    font-weight: bold;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.button-update:hover {
+background-color: orange;
+border-color: orange;
+color: #fff;
+}
+
+.button-delete {
+    text-align: left;
+    border: 2px solid paleturquoise;
+    font-size: 12px;
+    color: paleturquoise;
+    background-color: #fff;
+    font-weight: bold;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.4s;
+    outline: none;
+}
+
+.button-delete:hover {
+    background-color: paleturquoise;
+    border-color: paleturquoise ;
+    color: #fff;
+}
